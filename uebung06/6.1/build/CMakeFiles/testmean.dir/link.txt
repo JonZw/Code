@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/testmean.dir/meantest.cc.o  -o testmean libLib.a 
