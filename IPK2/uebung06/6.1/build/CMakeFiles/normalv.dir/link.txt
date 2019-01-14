@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/normalv.dir/normal.cc.o  -o normalv libLib.a 

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/readv.dir/readvector.cc.o  -o readv libLib.a 

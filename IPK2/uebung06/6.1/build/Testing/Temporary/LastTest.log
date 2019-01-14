@@ -1,0 +1,33 @@
+Start testing: Dec 03 12:05 CET
+----------------------------------------------------------
+1/2 Testing: testmean
+1/2 Test: testmean
+Command: "/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/testmean"
+Directory: /home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build
+"testmean" start time: Dec 03 12:05 CET
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testmean" end time: Dec 03 12:05 CET
+"testmean" time elapsed: 00:00:00
+----------------------------------------------------------
+
+2/2 Testing: testmedian
+2/2 Test: testmedian
+Command: "/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/testmedian"
+Directory: /home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build
+"testmedian" start time: Dec 03 12:05 CET
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"testmedian" end time: Dec 03 12:05 CET
+"testmedian" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Dec 03 12:05 CET
