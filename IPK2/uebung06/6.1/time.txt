@@ -1,5 +1,0 @@
-normalv mit N=10000000
-
-
-Debug:37,287s
-Releas:24,758

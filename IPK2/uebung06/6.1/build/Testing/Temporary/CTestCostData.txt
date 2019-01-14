@@ -1,3 +1,0 @@
-testmean 1 0.00306511
-testmedian 1 0.00304794
----

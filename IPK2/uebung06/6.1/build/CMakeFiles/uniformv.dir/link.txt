@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/uniformv.dir/uniform.cc.o  -o uniformv libLib.a 

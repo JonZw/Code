@@ -1,9 +1,0 @@
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/rebuild_cache.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/edit_cache.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/normalv.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/uniformv.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/testmean.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/test.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/testmedian.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/readv.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/build/CMakeFiles/Lib.dir

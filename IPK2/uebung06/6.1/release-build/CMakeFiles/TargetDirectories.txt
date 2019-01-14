@@ -1,6 +1,0 @@
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/release-build/CMakeFiles/rebuild_cache.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/release-build/CMakeFiles/edit_cache.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/release-build/CMakeFiles/Lib.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/release-build/CMakeFiles/readv.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/release-build/CMakeFiles/uniformv.dir
-/home/felix/Schreibtisch/Code/IPK/uebung06/6.1/release-build/CMakeFiles/normalv.dir
