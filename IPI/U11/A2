@@ -1,0 +1,61 @@
+IPI Übungsblatt 11 Aufgabe 2
+
+Befehl        Compiliert      Warum?/Aufgerufen
+
+A a;          Nein            A ist eine Abstrakte
+                              Klasse, kann nicht
+                              erzeugt werden
+
+B b;          Ja              Konstruktor von B
+
+C c;          Ja              Konstruktor von C
+
+A* pa=&b      Ja
+
+B* pb=&c      Ja
+
+float x= 1.2  Ja
+
+pa->a();      Ja              void a(); in A
+
+pa->va();     Ja              void va(); in B
+
+pa->a(1);     Ja              void a(int) in B
+
+pa->c();      Nein            c() ist private in A
+
+pa->b();      Nein            keine funktion b(); in A
+
+pa->vb();     Nein            keine funktion vb(); in A
+
+pa->a(x);     Ja              void a(int); in B
+
+pb->a();      Nein            Braucht einen Mitgabewert
+
+pb->va();     Ja              virtual void va(); in C
+
+pb->a(1);     Ja              void a(int); int B
+
+pb->c();      Nein            Kein c(); in B
+
+pb->b();      Ja              b(); in B
+
+pb->vb();     Ja              virtual void vb(); in B
+
+pb->a(x);     Ja              void a(double d); in B
+
+pa=&c;        Ja
+
+pa->a()       Ja              void a(); in A
+
+pa->va()      Ja              virtual void va(); in c
+
+pa->a(1)      Ja              void a(int); in B
+
+pa->c()       Nein            c(); ist private in A
+
+pa->b()       Nein            kein b(); in A
+
+pa->vb()      Nein            kein vb(); in A
+
+pa->a(x)      Ja              void a(int); in B
