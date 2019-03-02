@@ -27,7 +27,7 @@ public:
     //Nothing to do here
   }
   datenform& operator[](int position) //[]
-  {
+  { 
     return _array[position];
   }
   Vector operator+(Vector& other)    //+

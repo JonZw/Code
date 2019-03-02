@@ -18,7 +18,7 @@ public:
     Laut="Miau";
     Farbe="Braun";
   }
-  void gibLaut()
+  void gibLaut() override
   {
     std::cout<<Laut<<std::endl;
   }
@@ -32,7 +32,7 @@ public:
     Laut="*plätscher*";
     Farbe="Blau";
   }
-  void gibLaut()
+  void gibLaut() override
   {
     std::cout<<Laut<<std::endl;
   }
@@ -46,7 +46,7 @@ public:
     Laut="warum?";
     Farbe="Braun-Rot";
   }
-  void gibLaut()
+  void gibLaut() override
   {
     std::cout<<Laut<<std::endl;
   }

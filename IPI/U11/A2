@@ -38,7 +38,7 @@ pb->a(1);     Ja              void a(int); int B
 
 pb->c();      Nein            Kein c(); in B
 
-pb->b();      Ja              b(); in B
+pb->b();      Ja              void b(); in B
 
 pb->vb();     Ja              virtual void vb(); in B
 

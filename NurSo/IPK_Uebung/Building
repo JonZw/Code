@@ -1,0 +1,8 @@
+#include<iostream>
+
+std::vector<Building> sortedByHeight(const std::vector<Building>& vec)
+{
+  auto result= vec;
+  std::sort(result.begin(),result.end(),[](Buildin& a, Buildin& b){return a>b;});
+  return result;
+}
