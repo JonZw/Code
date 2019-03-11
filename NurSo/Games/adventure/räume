@@ -1,0 +1,3 @@
+std::string raum1="--------------------------\n";
+  std::cout<<raum1<<std::endl;
+    //raum1="hi";//raum1+("|                           |");
