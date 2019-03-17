@@ -1,12 +1,11 @@
 #include<iostream>
-#include"System.cc"
+#include"DSystem.cc"
 
 int main()
 {
  System Game;
  bool end=false;
  int chosen=0;
- int where=0;
  int Player=0;
  Game.change(Player);
  Game.out();
@@ -18,21 +17,23 @@ int main()
     system("stty cooked");
     switch(input)
     {
-      case 'q':end=true;break;
+      case 't':end=true;break;
       case 'w':Game.movUp();break;
       case 'a':Game.movLe();break;
       case 's':Game.movDo();break;
       case 'd':Game.movRi();break;
-      case 'i':Player=(Player+1)%2;Game.change(Player);break;
+      case 'q':Game.movLup();break;
+      case 'e':Game.movRup();break;
+      case 'y':Game.movLown();break;
+      case 'c':Game.movRown();break;
       case 32 :switch(chosen)
                {
                   case 0:if(Game.mine(Player))
                           {
                             chosen=Game.who();
-                            where=Game.where();
                           }
                           break;
-                  case 1:if(Game.invade(Player,where))
+                  case 1:if(Game.alloc(Player))
                           {
                             Player=(Player+1)%2;
                             Game.change(Player);
@@ -47,7 +48,9 @@ int main()
                }
                break;
     }
+    Game.Abstand(Game.where());
     Game.out();
+    Game.Rab();
   }
   std::cout<<"Exit"<<std::endl;
 }
