@@ -86,7 +86,10 @@ public:
   }
   void up()
   {
-    //???
+    if(_loc==_dest)
+    {
+      Imag[2]="|  R   |";
+    }
   }
   int out()
   {
