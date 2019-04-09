@@ -3,6 +3,7 @@
 
 #include "Terminal.h"
 #include "Vec2D.h"
+#include <vector>
 
 
 class Frog
@@ -18,6 +19,7 @@ private:
   };
   Vec2D _position;
   MoveDirection _dir;
+  std::vector<Vec2D> _hitbox[6];
 public:
   Frog(Terminal& term);
   void draw();
@@ -31,6 +33,7 @@ class Car
 private:
   Terminal _term;
   Vec2D _position;
+  std::vector<Vec2D> _hitbox[6];
   enum class MoveDirection
   {
     LEFT,

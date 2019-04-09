@@ -1,5 +1,6 @@
 #ifndef VEC2D_H
 #define VEC2D_H
+#include<iostream>
 
 class Vec2D
 {
@@ -12,11 +13,27 @@ public:
 	int y;
   bool operator==(Vec2D other)
   {
-    if(x==other.x&&y==other.x)
+    for(int i=-1;i<=1;++i)
     {
-      return true;
+      for(int n=0;n<=1;++n)
+      {
+        if(x+i==other.x&&y+n==other.y)
+        {
+          return true;
+        }
+      }
     }
-    return false;
+    for(int i=-1;i<=1;++i)
+    {
+      for(int n=0;n<=1;++n)
+      {
+        if(x==other.x+i&&y+n==other.y+n)
+        {
+          return true;
+        }
+      }
+    }
+  return false;
   }
 };
 

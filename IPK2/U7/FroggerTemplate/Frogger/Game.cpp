@@ -37,12 +37,12 @@ void Game::update(float dt)
   {
       if (!_game_over)
       {
-          frog.update();
-          for(auto& c:cars)
-          {
-            c.update();
-          }
-          check_collision();
+        frog.update();
+        for(auto& c:cars)
+        {
+          c.update();
+        }
+        check_collision();
       }
       _elapsed_time = 0.f;
   }
@@ -54,10 +54,17 @@ bool Game::is_done()
 void Game::draw()
 {
   _term.clear();
-  frog.draw();
-  for(auto& c:cars)
+  if(!_game_over)
   {
-    c.draw();
+    frog.draw();
+    for(auto& c:cars)
+    {
+      c.draw();
+    }
+  }
+  else
+  {
+    _term.draw_text(_term.width()/4,_term.height()/2,"Game over: r to restart / q to quit");
   }
 }
 void Game::check_collision()
@@ -67,7 +74,6 @@ void Game::check_collision()
     if(c.position()==frog.position())
     {
       _game_over=true;
-      _is_done=true;
     }
   }
 }

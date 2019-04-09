@@ -37,6 +37,12 @@ void Car::update()
     else
       _dir=MoveDirection::LEFT;
   }
+  _hitbox[0].push_back({_position.x-1,_position.y});
+  _hitbox[0].push_back({_position.x,_position.y});
+  _hitbox[0].push_back({_position.x+1,_position.y});
+  _hitbox[0].push_back({_position.x-1,_position.y-1});
+  _hitbox[0].push_back({_position.x,_position.y-1});
+  _hitbox[0].push_back({_position.x+1,_position.y-1});
 }
 Vec2D Car::position()
 {
