@@ -9,7 +9,7 @@
 
 // Drucke das Argument und gebe es zurueck
 template<typename T>
-T print (T x) 
+T print (T x)
 {
   std::cout.precision(16);
   std::cout << x << std::endl;
@@ -18,7 +18,7 @@ T print (T x)
 
 // Drucke Argument 1 und gebe das letzte Argument zurueck
 template<typename T1, typename T2>
-T2 print (T1 x1, T2 x2) 
+T2 print (T1 x1, T2 x2)
 {
   std::cout.precision(16);
   std::cout << x1 << std::endl;
@@ -27,7 +27,7 @@ T2 print (T1 x1, T2 x2)
 
 // Drucke Argumente 1-2 und gebe das letzte Argument zurueck
 template<typename T1, typename T2, typename T3>
-T3 print (T1 x1, T2 x2, T3 x3) 
+T3 print (T1 x1, T2 x2, T3 x3)
 {
   std::cout.precision(16);
   std::cout << x1 << " " << x2 << std::endl;
@@ -36,14 +36,14 @@ T3 print (T1 x1, T2 x2, T3 x3)
 
 // Drucke Argumente 1-3 und gebe das letzte Argument zurueck
 template<typename T1, typename T2, typename T3, typename T4>
-T4 print (T1 x1, T2 x2, T3 x3, T4 x4) 
+T4 print (T1 x1, T2 x2, T3 x3, T4 x4)
 {
   std::cout.precision(16);
   std::cout << x1 << " " << x2 << " " << x3 << std::endl;
   return x4;
 }
 
-// gebe einfach Null zurueck. Vorsicht: Koennte bei Optimierung dazu 
+// gebe einfach Null zurueck. Vorsicht: Koennte bei Optimierung dazu
 // fuehren, dass das Argument gar nicht berechnet wird.
 template<typename T>
 int dump (T x)
@@ -75,7 +75,7 @@ int readarg_int (int argc, char** argv, int i)
     std::cout << "Kann Argument " << i << " nicht lesen: zuwenig Argumente" << std::endl;
     exit(0);
   }
-  int x; 
+  int x;
   sscanf(argv[i],"%d",&x);
   return x;
 }
@@ -87,8 +87,7 @@ double readarg_double (int argc, char** argv, int i)
     std::cout << "Kann Argument " << i << " nicht lesen: zuwenig Argumente" << std::endl;
     exit(0);
   }
-  double x; 
+  double x;
   sscanf(argv[i],"%lg",&x);
   return x;
 }
-
