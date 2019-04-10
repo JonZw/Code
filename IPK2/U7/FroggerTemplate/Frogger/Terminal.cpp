@@ -1,4 +1,5 @@
 #include "Terminal.h"
+#include <stdlib.h>
 
 #if defined(_WIN32)
 #include <curses.h>
@@ -29,15 +30,20 @@ int Terminal::height() const
 {
 	return LINES;
 }
-
-void Terminal::set_cell(int x, int y, char symbol)
+//Terminal::Terminal(){}//?
+void Terminal::set_cell(int x, int y, char symbol,int color)
 {
-	mvaddch(y, x, symbol);
+init_pair(color,color, 0);
+
+attron(COLOR_PAIR(color));
+mvaddch(y, x, symbol);
+attroff(COLOR_PAIR(color));
 }
 
 void Terminal::draw_text(int x, int y, const std::string& text)
 {
-	mvaddstr(y, x, text.c_str());
+	mvaddstr(y, x,text.c_str());
+
 }
 
 void Terminal::clear()

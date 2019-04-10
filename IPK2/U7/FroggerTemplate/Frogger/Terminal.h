@@ -13,7 +13,7 @@ class Terminal
         * @param height The height of the terminal
         */
         Terminal(int width, int height);
-
+        //Terminal();
         /**
         * Gives the width of the terminal in cells.
         */
@@ -39,7 +39,7 @@ class Terminal
         * @param y The y coordinate
         * @param symbol The symbol to set the cell to
         */
-        void set_cell(int x, int y, char symbol);
+        void set_cell(int x, int y, char symbol,int color);
 
         /**
         * Draws text starting at the given cell coordinates (x, y).

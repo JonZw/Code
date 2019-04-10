@@ -19,13 +19,15 @@ private:
   };
   Vec2D _position;
   MoveDirection _dir;
-  std::vector<Vec2D> _hitbox[6];
+  int _ticktack=1;
 public:
   Frog(Terminal& term);
   void draw();
   void change_direction(char pressed);
   void update();
   Vec2D position();
+  bool ticktack();
+  void reset();
 };//End Frog
 
 class Car
@@ -33,19 +35,37 @@ class Car
 private:
   Terminal _term;
   Vec2D _position;
-  std::vector<Vec2D> _hitbox[6];
   enum class MoveDirection
   {
     LEFT,
     RIGHT,
   };
   MoveDirection _dir;
+  int _ticktack=1;
+  int _color;
 public:
-  Car(Terminal& term,Vec2D pos,int dir);
+  Car(Terminal& term,Vec2D pos,int dir,int _color);
+  //Car();//?
   void draw();
   void update();
   Vec2D position();
+  bool ticktack();
+  void reset();
 };//End Car
-
+class Bush
+{
+private:
+  Terminal _term;
+  Vec2D _position;
+  int _ticktack=1;
+  bool _random;
+public:
+  Bush(Terminal& term,Vec2D pos,bool rand);
+  void update();
+  void draw();
+  bool ticktack();
+  void reset();
+  Vec2D position();
+};
 
 #endif

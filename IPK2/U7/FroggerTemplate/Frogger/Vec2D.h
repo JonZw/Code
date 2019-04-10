@@ -23,16 +23,6 @@ public:
         }
       }
     }
-    for(int i=-1;i<=1;++i)
-    {
-      for(int n=0;n<=1;++n)
-      {
-        if(x==other.x+i&&y+n==other.y+n)
-        {
-          return true;
-        }
-      }
-    }
   return false;
   }
 };
