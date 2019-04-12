@@ -11,7 +11,6 @@ Car::Car(Terminal& term,Vec2D pos,int dir,int col):_term(term),_position(pos),_c
     _dir=MoveDirection::RIGHT;
   }
 }
-//Car::Car(){}//?
 void Car::draw()
 {
   _term.set_cell(_position.x,_position.y,'-',_color);
@@ -25,10 +24,10 @@ void Car::update()
 {
   if(_dir==MoveDirection::LEFT)
   {
-    if(_position.x>3)
+    if(_position.x>4)//Linke Wand
     {
       _position.x-=2;
-      if(ticktack())
+      if(ticktack())  //jeder 5te tick eins nach unten
         _position.y+=1;
     }
     else
@@ -36,7 +35,7 @@ void Car::update()
   }
   if(_dir==MoveDirection::RIGHT)
   {
-    if(_position.x<_term.width()-3)
+    if(_position.x<_term.width()-5)//Rechte Wand
     {
       _position.x+=2;
       if(ticktack())

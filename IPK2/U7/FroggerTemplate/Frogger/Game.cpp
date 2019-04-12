@@ -2,7 +2,7 @@
 
 Game::Game(Terminal& term):_term(term),frog(_term),_elapsed_time(0.f),_score(0)
 {
-  reset();
+  reset(); //Setzt Frösch,Büsche und Autos an die richtige stelle
 }
 
 void Game::update(float dt)
@@ -17,19 +17,8 @@ void Game::update(float dt)
       case 'q':
           _is_done = true;
           break;
-      case 'w':
-          frog.change_direction(pressed);
-          break;
-      case 'a':
-          frog.change_direction(pressed);
-          break;
-      case 's':
-          frog.change_direction(pressed);
-          break;
-      case 'd':
-          frog.change_direction(pressed);
-          break;
       default:
+          frog.change_direction(pressed);
           break;
   }
   _elapsed_time += dt;
@@ -47,11 +36,11 @@ void Game::update(float dt)
           b.update();
         }
         ++_score;
-        if(_score%500==0)
+        if(_score%500==0)//jeder 500 punkt erzeugt ein weiteres Auto
         {
           cars.push_back({_term,{rand()%_term.width(),rand()%30-30},1,rand()%7+1});
         }
-        if(_score%1000==0)
+        if(_score%1000==0)// und jeder 1000te ein neuen Busch
         {
           bushs.push_back({_term,{rand()%_term.width()-1,-5},1});
         }
@@ -81,13 +70,13 @@ void Game::draw()
   {
     _term.draw_text(_term.width()/4,_term.height()/2,"Game over: r to restart / q to quit");
   }
-  _term.sleep(16);
+  _term.sleep(16);  //für 60 fps
 }
 void Game::check_collision()
 {
   for(auto& c: cars)
   {
-    if(c.position()==frog.position())
+    if(c.position()==frog.position())//Vec2D == operator überschrieben
     {
       _game_over=true;
     }

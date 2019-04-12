@@ -19,13 +19,16 @@ private:
   };
   Vec2D _position;
   MoveDirection _dir;
+  //für ticktack()
   int _ticktack=1;
 public:
   Frog(Terminal& term);
   void draw();
   void change_direction(char pressed);
   void update();
+  //giebt die position zurück
   Vec2D position();
+  //jeder 5te aufruf giebt true zurück
   bool ticktack();
   void reset();
 };//End Frog
@@ -45,7 +48,6 @@ private:
   int _color;
 public:
   Car(Terminal& term,Vec2D pos,int dir,int _color);
-  //Car();//?
   void draw();
   void update();
   Vec2D position();

@@ -13,7 +13,6 @@ class Terminal
         * @param height The height of the terminal
         */
         Terminal(int width, int height);
-        //Terminal();
         /**
         * Gives the width of the terminal in cells.
         */

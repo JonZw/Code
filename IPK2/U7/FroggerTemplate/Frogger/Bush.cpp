@@ -6,11 +6,13 @@ void Bush::draw()
 {
   _term.set_cell(_position.x,_position.y,'0',2);
   _term.set_cell(_position.x,_position.y+1,'|',130);
+  _term.set_cell(_position.x-1,_position.y+1,'l',130);
+  _term.set_cell(_position.x+1,_position.y+1,'-',130);
 }
 
 void Bush::update()
 {
-  if(ticktack())
+  if(ticktack())//jeder fünfte tick 1 nach unten
   {
      ++_position.y;
      if(_position.y>_term.height())
@@ -39,3 +41,5 @@ Vec2D Bush::position()
 {
   return _position;
 }
+// 0
+//l|-

@@ -40,7 +40,7 @@ void Frog::update()
       {
         _position.y-=1;
       }
-      if(ticktack())
+      if(ticktack())//jeder 5te tick eins nach unten
       {
         _position.y+=1;
       }
@@ -100,5 +100,5 @@ void Frog::reset()
   _position.x=_term.width()/2;
   _position.y=_term.height()-2;
 }
-//lo1
+//lo1 
 //<U>

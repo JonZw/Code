@@ -2,7 +2,7 @@
 #define GAME_H
 
 #include"Terminal.h"
-#include "Objekts.h"
+#include"Firework.h"
 #include <vector>
 #include <string>
 
@@ -10,16 +10,18 @@ class Game
 {
 private:
   Terminal _term;
-  std::vector<Car> cars;
-  std::vector<Bush> bushs;
-  Frog frog;
   bool _game_over=false;
   bool _is_done=false;
+  std::vector<Firework*> _firework;
+  int _accfire=0;   //aktueller Feuerwerkskörper zum bewegen
   float _elapsed_time;
   int _score;
+  int _who=0;
 public:
   //Konstruktor
   Game(Terminal& term);
+  //Destruktor
+  ~Game();
   //return _is_done
   bool is_done();
   //updatet das Spiel
@@ -28,8 +30,10 @@ public:
   void draw();
   //Überprüft ob Game over
   void check_collision();
-  //setzt das Spiel zurück
+  //
   void reset();
+  //setzt das Spiel zurück
+  void nFirework(int who);
 };
 
 #endif
