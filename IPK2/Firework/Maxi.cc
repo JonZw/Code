@@ -1,12 +1,11 @@
 #include "Firework.h"
 #include <string>
 
-Normal::Normal(Terminal& term,Vec2D pos):Firework(term,pos)
+Maxi::Maxi(Terminal& term,Vec2D pos):Firework(term,pos)
 {
   std::vector<Vec2D> _sparks;
 }
-Normal::Normal(const Normal& other):Firework(other){}
-void Normal::update()
+void Maxi::update()
 {
   if(_status==Status::FLY)
   {
@@ -33,10 +32,17 @@ void Normal::update()
   }
   if(_radius>=_max_radius)
   {
-    _status=Status::END;
+    _status=Status::FLY;
+    _position.y=_term.height()-3;
+    _radius=0;
+    _count++;
+    if(_count==5)
+    {
+      _status=Status::END;
+    }
   }
 }
-void Normal::draw()
+void Maxi::draw()
 {
   if(_status==Status::EXPLODE)
   {
@@ -65,11 +71,15 @@ void Normal::draw()
         _term.set_cell(s.x,s.y,boom,rand()%250,0);
     }
     if(_sparks.size()!=0)
+    {
       _sparks.erase(_sparks.begin());
+    }
   }
   if(_status==Status::FLY)
   {
     _term.set_cell(_position.x,_position.y,'x',_color,0);
+    _term.set_cell(_position.x,_term.height()-5,'^',_color,0);
+    _term.set_cell(_position.x,_term.height()-4,'M',_color,0);
   }
   if(_status==Status::GROUND)
   {
@@ -82,6 +92,6 @@ void Normal::draw()
       _term.set_cell(_position.x,_height,'x',_color,0);
     }
     _term.set_cell(_position.x,_position.y-1,'^',_color,0);
-    _term.set_cell(_position.x,_position.y,'|',_color,0);
+    _term.set_cell(_position.x,_position.y,'M',_color,0);
   }
 }

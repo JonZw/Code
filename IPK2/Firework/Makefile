@@ -8,7 +8,7 @@ CFLAGS = -g -Wall -std=c++11
 default: $(TARGET)
 all: default
 
-SOURCES = main.cc Terminal.cc Game.cc Normal.cc Fountain.cc
+SOURCES = main.cc Terminal.cc Game.cc Normal.cc Fountain.cc Big.cc Maxi.cc
 HEADERS = Terminal.h	Vec2D.h Firework.h Game.h
 
 $(TARGET):

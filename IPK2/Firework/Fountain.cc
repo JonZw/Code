@@ -56,14 +56,14 @@ void Fountain::draw()
           case 9: boom='2';break;
         }
       }
-      _term.set_cell(s.x,s.y,boom,_color);
+      _term.set_cell(s.x,s.y,boom,_color,0);
     }
-    _term.set_cell(_position.x,_position.y-1,'^',_color);
-    _term.set_cell(_position.x,_position.y,'L',_color);
+    _term.set_cell(_position.x,_position.y-1,'^',_color,0);
+    _term.set_cell(_position.x,_position.y,'L',_color,0);
   }
   if(_status==Status::FLY)
   {
-    _term.set_cell(_position.x,_position.y,'x',_color);
+    _term.set_cell(_position.x,_position.y,'x',_color,0);
   }
   if(_status==Status::GROUND)
   {
@@ -71,11 +71,11 @@ void Fountain::draw()
     {
       for(int n=0;n<_term.height()-3-_height;++n)
       {
-        _term.set_cell(_position.x,_height+n,':',_color);
+        _term.set_cell(_position.x,_height+n,':',_color,0);
       }
-      _term.set_cell(_position.x,_height,'x',_color);
+      _term.set_cell(_position.x,_height,'x',_color,0);
     }
-    _term.set_cell(_position.x,_position.y-1,'^',_color);
-    _term.set_cell(_position.x,_position.y,'L',_color);
+    _term.set_cell(_position.x,_position.y-1,'^',_color,0);
+    _term.set_cell(_position.x,_position.y,'L',_color,0);
   }
 }

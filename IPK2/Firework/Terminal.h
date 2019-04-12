@@ -38,7 +38,7 @@ class Terminal
         * @param y The y coordinate
         * @param symbol The symbol to set the cell to
         */
-        void set_cell(int x, int y, char symbol,int color);
+        void set_cell(int x, int y, char symbol,int color,int so);
 
         /**
         * Draws text starting at the given cell coordinates (x, y).

@@ -70,11 +70,15 @@ public:
   }
   virtual void changeColor(int col)
   {
-    _color=col;
+    _color=col-48;
   }
   void end()
   {
     _status=Status::END;
+  }
+  int x()
+  {
+    return _position.x;
   }
 };//End firework
 
@@ -94,3 +98,22 @@ public:
   void update();
   void draw();
 };//end Normal
+
+class Big:public Firework
+{
+public:
+  Big(Terminal& term, Vec2D pos);
+  Big(const Normal& other);
+  void update();
+  void draw();
+};//end Big
+
+class Maxi:public Firework
+{
+private:
+int _count;
+public:
+  Maxi(Terminal& term, Vec2D pos);
+  void update();
+  void draw();
+};//end Maxi

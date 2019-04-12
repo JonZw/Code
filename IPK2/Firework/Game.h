@@ -10,13 +10,12 @@ class Game
 {
 private:
   Terminal _term;
-  bool _game_over=false;
   bool _is_done=false;
   std::vector<Firework*> _firework;
   int _accfire=0;   //aktueller Feuerwerkskörper zum bewegen
   float _elapsed_time;
-  int _score;
-  int _who=0;
+  int _who=1;
+  bool _game_on=false;
 public:
   //Konstruktor
   Game(Terminal& term);

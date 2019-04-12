@@ -31,13 +31,19 @@ int Terminal::height() const
 	return LINES;
 }
 
-void Terminal::set_cell(int x, int y, char symbol,int color)
+void Terminal::set_cell(int x, int y, char symbol,int color,int so)
 {
 init_pair(color,color, 0);	//Erstellt ein Pair (Name,Farbe,Hintergrund)
+if(so==1)
+{
+	attrset(A_STANDOUT);
+}
 
 attron(COLOR_PAIR(color));	//Schaltet die Farbe an
 mvaddch(y, x, symbol);
 attroff(COLOR_PAIR(color)); //und wieder aus
+
+attrset(A_NORMAL);
 }
 
 void Terminal::draw_text(int x, int y, const std::string& text)
