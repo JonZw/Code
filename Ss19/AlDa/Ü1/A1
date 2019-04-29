@@ -1,0 +1,41 @@
+import math
+
+print("math.sqrt: ",math.sqrt(16))    #sqrt() ist im math Modul, um sie zu verwenden muss
+                        #man math importieren und sie dan mit math.sqrt(#)
+                        #ausfuehren
+
+#print(math.sqrt(-16))   #fuehrt zur Fehlermeldung: ValueError: math domain error
+
+def mysqrtif(x):
+    if(x<0):
+        return ("mysqrt() funktioniert nicht fuer negative Zahlen, du Dussel!")
+    else:
+        return (math.sqrt(x))
+
+print("mysqrtif(-16) :",mysqrtif(-16))
+print("mysqrtif(16) :",mysqrtif(16))
+
+def mysqrttry(x):
+    try:
+        return (math.sqrt(x))
+    except:
+        return ("mysqrt() funktioniert nicht fuer negative Zahlen, du Dussel!")
+
+print("mysqrttry(-16) :",mysqrttry(-16))
+print("mysqrttry(16) :",mysqrttry(16))
+
+print ("-10->10 mod 5 :")
+for x in range(-10,11):
+    print(x,x%5)                # modolus giebt den rest zurueck
+                                # der bei einer Teilung enstehen wuerde
+                                # Bsp.: 7%5=2 weil 7=5*1 plus 2
+
+print '''Dreifache anfuehrungszeichen
+        erlauben einen Zeilenumbruch'''
+
+#list ist eine Liste die Werte an einen Index schreibt
+#dict erzeugt ein dictionary  indem jeder wert ein keywort hat
+
+#__init__() ist der Konstruktor der Klasse, er wird aufgerufen wenn
+#eine Klasse erzeugt wird. Ihm werte die Werte mitgegeben und setzt
+#sie an der richtigen stelle ein
