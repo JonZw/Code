@@ -9,6 +9,12 @@ protected:
   Terminal _term;
   Vec2D _position;
   int _team;
+  enum Status
+  {
+    ALIFE,
+    DEAD
+  };
+  Status status=Status::ALIFE;
 public:
   Objects(Terminal& term,Vec2D pos,int team):_term(term),_position(pos),_team(team){}
   Objects(const Objects& other)
@@ -16,9 +22,11 @@ public:
     _term=other._term;
     _position=other._position;
   }
+  int getx(){return _position.x;}
   virtual ~Objects(){}
   virtual void update()=0;
   virtual void draw()=0;
+  void die(){status=Status::DEAD;}
 };//End Objects
 
 class Base:public Objects

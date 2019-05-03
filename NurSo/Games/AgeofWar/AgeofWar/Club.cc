@@ -17,6 +17,9 @@ void Club::update()
 }
 void Club::draw()
 {
-  _term.set_cell(_position.x,_position.y,'|',_team,0);
-  _term.set_cell(_position.x,_position.y-1,'o',_team,0);
+  if(status==ALIFE)
+  {
+    _term.set_cell(_position.x,_position.y,'|',_team,0);
+    _term.set_cell(_position.x,_position.y-1,'o',_team,0);
+  }
 }

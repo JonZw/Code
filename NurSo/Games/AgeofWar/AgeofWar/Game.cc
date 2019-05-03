@@ -1,4 +1,5 @@
 #include"Game.h"
+#include<string>
 
 Game::Game(Terminal& term):_term(term),_elapsed_time(0.f)
 {
@@ -43,6 +44,7 @@ void Game::update(float dt)
           {
             o->update();
           }
+          check_collision();
         }
         _elapsed_time = 0.f;
     }
@@ -66,12 +68,16 @@ bool Game::is_done()
 }
 void Game::draw()
 {
-  _term.clear();
+  //_term.clear();
   for(auto& o:_objects)
   {
     o->draw();
   }
   _term.sleep(16);  //für 60 fps
+}
+void Game::check_collision()
+{
+
 }
 void Game::reset()
 {
