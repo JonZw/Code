@@ -12,7 +12,8 @@ protected:
   enum Status
   {
     ALIFE,
-    DEAD
+    DEAD,
+    ATTAK
   };
   Status status=Status::ALIFE;
 public:
@@ -23,6 +24,8 @@ public:
     _position=other._position;
   }
   int getx(){return _position.x;}
+  int getteam(){return _team;}
+  void attack(){status=Status::ATTAK;}
   virtual ~Objects(){}
   virtual void update()=0;
   virtual void draw()=0;
@@ -40,6 +43,8 @@ public:
 
 class Club:public Objects
 {
+private:
+  int _count=0;
 public:
   Club(Terminal& term, Vec2D pos,int team);
   Club(const Base& other);

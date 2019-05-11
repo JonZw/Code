@@ -17,6 +17,3 @@ void Base::draw()
   _term.set_cell(_position.x-1,_position.y-1,'/',_team,0);
   _term.set_cell(_position.x+1,_position.y-1,'\\',_team,0);
 }
-
-///\\
-//|_|

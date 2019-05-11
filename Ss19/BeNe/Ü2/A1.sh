@@ -1,8 +1,10 @@
 #! /bin/bash
   if ! [  $# -eq 1 ]
-      then echo gebe ein Verzeichnis mit
+    then
+      echo gebe ein Verzeichnis mit
   elif [ -d $1 ]
-      then cd $1
+      then
+        cd $1
         for file in {*.png,*.jpg}
           do
             if [ -e $file ]

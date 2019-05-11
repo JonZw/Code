@@ -14,11 +14,15 @@ private:
   std::vector<Objects*> _objects;
   float _elapsed_time;
   bool _game_on=false;
+  int _player1=30;
+  int _player2=30;
 public:
   //Konstruktor
   Game(Terminal& term);
   //Destruktor
   ~Game();
+  //Spawn units
+  void spawn(int team);
   //return _is_done
   bool is_done();
   //updatet das Spiel
