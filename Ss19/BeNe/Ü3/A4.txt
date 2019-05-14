@@ -1,0 +1,10 @@
+Beim Prozesswechsel wird zuerst der Kontext und auch alle Register
+gespeichert. Der Aktuelle PCB wird dann aktualisiert und in die
+Warteschlange geschoben. Der PCB des neuen Prozessses wird
+aktualisiert sowie die Datenstrukturen für das Speichermanagement.
+Dann wird zuletzt der Kontext des neuen Prozesses wiederhergestellt.
+Während das alles passiert konnte nichts produktives geleistet werden.
+
+Das Youtubeviedo (https://www.youtube.com/watch?v=2a05xjNceP0&list=PL
+qE63EN7m04eoD84hdrHK7rt9-zsZHe78&i) konnte ich mir nicht ansehen,
+da es gelöscht wurde

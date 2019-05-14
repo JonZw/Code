@@ -3,16 +3,16 @@
 #include<vector>
 #include <algorithm>
 
-bool vectorContains(std::vector<int>& v,int e)
+int vectorContains(std::vector<int>& v,int e)
 {
-  for(int& i: v)
+  for(unsigned i=0;i<v.size();++i)
   {
-    if(e==i)
+    if(e==v[i])
     {
-      return true;
+      return i;
     }
   }
-  return false;
+  return v.size();
 }
 
 
@@ -81,10 +81,26 @@ void Game::update(float dt)
           for(auto& o:_objects)
           {
             o->update();
+            check_collision();
           }
-          check_collision();
           _player1++;
           _player2++;
+          for(unsigned i=0;i<_objects.size();++i) //Prüft ob Tot
+          {
+            if(_objects[i]->loluded())
+            {
+              if(_objects[i]->getteam()==1)
+              {
+                _player2+=_objects[i]->getxp();
+              }
+              else
+              {
+                _player1+=_objects[i]->getxp();
+              }
+              delete _objects[i];
+              _objects.erase(_objects.begin()+i);
+            }
+          }
         }
         _elapsed_time = 0.f;
     }
@@ -96,7 +112,7 @@ void Game::update(float dt)
         case 'q':
             _is_done = true;
             break;
-        case 's':
+        case 'p':
             _game_on=true;
             break;
     }
@@ -121,36 +137,57 @@ void Game::draw()
 void Game::check_collision()
 {
   std::vector<int> v;
-  std::string hi;
   for(auto& o:_objects)
   {
-    hi+=" "+std::to_string(o->getx());
     v.push_back(o->getx());
   }
   for(auto& o:_objects)
   {
     if(o->getteam()==1)
     {
-      if(vectorContains(v,o->getx()+3))
+      if((unsigned)vectorContains(v,o->getx()+3)<v.size())
       {
-        o->attack();
+        if(_objects[vectorContains(v,o->getx()+3)]->getteam()==2)
+        {
+          o->attack();
+          _objects[vectorContains(v,o->getx()+3)]->aua(o->getdmg());
+        }
+        else
+          o->idle();
+      }
+      else
+      {
+          o->alife();
       }
     }
     if(o->getteam()==2)
     {
-      if(vectorContains(v,o->getx()-3))
+      if((unsigned)vectorContains(v,o->getx()-3)<v.size())
       {
-        o->attack();
+        if(_objects[vectorContains(v,o->getx()-3)]->getteam()==1)
+        {
+          o->attack();
+          _objects[vectorContains(v,o->getx()-3)]->aua(o->getdmg());
+        }
+        else
+          o->idle();
+      }
+      else
+      {
+        o->alife();
       }
     }
   }
-
-  _term.draw_text(20,20,hi);
 }
 void Game::reset()
 {
-  for(auto& o:_objects)
+  for(unsigned i=0;i<_objects.size();++i)
   {
-    delete o;
+    delete _objects[i];
   }
+  _objects.clear();
+  Base* neu=new Base(_term,{2,(_term.height()/3)*2},1);
+  Base* neu2=new Base(_term,{_term.width()-3,(_term.height()/3)*2},2);
+  _objects.push_back(neu);
+  _objects.push_back(neu2);
 }
