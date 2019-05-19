@@ -20,8 +20,12 @@ Game::Game(Terminal& term):_term(term),_elapsed_time(0.f)
 {
   Base* neu=new Base(_term,{2,(_term.height()/3)*2},1);
   Base* neu2=new Base(_term,{term.width()-3,(_term.height()/3)*2},2);
+  Clubtrainer* neu3=new Clubtrainer(_term,{1,1},1);
+  Clubtrainer* neu4=new Clubtrainer(_term,{1,1},2);
   _objects.push_back(neu);
   _objects.push_back(neu2);
+  _objects.push_back(neu3);
+  _objects.push_back(neu4);
 }
 Game::~Game()
 {
@@ -30,16 +34,37 @@ Game::~Game()
     delete o;
   }
 }
-void Game::spawn(int team)
+void Game::spawn(int team,int unit)
 {
+  Vec2D where;
   if(team==1)
   {
-    Club* neu=new Club(_term,{2,(_term.height()/3)*2},1);
-    _objects.push_back(neu);
+    where={2,(_term.height()/3)*2};
   }
   if(team==2)
   {
-    Club* neu=new Club(_term,{_term.width()-3,(_term.height()/3)*2},2);
+    where={_term.width()-3,(_term.height()/3)*2};
+  }
+  if(unit==1)
+  {
+    try
+    {
+      Club* neu=new Club(_term,where,team);
+      _objects.push_back(neu);
+    }
+    catch(...)
+    {
+
+    }
+  }
+  if(unit==2)
+  {
+    King* neu=new King(_term,where,team);
+    _objects.push_back(neu);
+  }
+  if(unit==3)
+  {
+    Queen* neu=new Queen(_term,where,team);
     _objects.push_back(neu);
   }
 }
@@ -59,16 +84,49 @@ void Game::update(float dt)
         case 'a':
             if(_player1-50>=0)
             {
-              spawn(1);
+              spawn(1,1);
               _player1-=50;
             }
+            break;
+        case 's':
+            if(_player1-300>=0)
+            {
+              spawn(1,2);
+              _player1-=300;
+            }
+            break;
+        case 'd':
+            if(_player1-1500>=0)
+              {
+                spawn(1,3);
+                _player1-=1500;
+              }
+        case 'y':
+            trainer(1,1);
             break;
         case 'l':
             if(_player2-50>=0)
             {
-              spawn(2);
+              spawn(2,1);
               _player2-=50;
             }
+            break;
+        case 'k':
+            if(_player2-300>=0)
+            {
+              spawn(2,2);
+              _player2-=300;
+            }
+            break;
+        case 'j':
+            if(_player2-1500>=0)
+            {
+              spawn(2,3);
+              _player2-=1500;
+            }
+            break;
+        case ',':
+            trainer(2,1);
             break;
         default:
             break;
@@ -82,6 +140,10 @@ void Game::update(float dt)
           {
             o->update();
             check_collision();
+            if(o->train())
+            {
+              spawn(o->getteam(),o->who());
+            }
           }
           _player1++;
           _player2++;
@@ -175,6 +237,27 @@ void Game::check_collision()
       else
       {
         o->alife();
+      }
+    }
+  }
+}
+void Game::trainer(int team,int trainer)
+{
+  for(auto& o: _objects)
+  {
+    if(o->getteam()==team&&o->who()==trainer)
+    {
+      if((o->getteam()==1&&o->cost()<_player1)||(o->getteam()==2&&o->cost()<_player2))
+      {
+        if(o->getteam()==1)
+        {
+          _player1-=o->cost();
+        }
+        if(o->getteam()==2)
+        {
+          _player2-=o->cost();
+        }
+        o->up();
       }
     }
   }

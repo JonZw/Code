@@ -10,6 +10,7 @@ protected:
   Vec2D _position;
   int _team;
   int _hp;
+  int _mp;
   int _dmg;
   int _xp;
   enum Status
@@ -39,6 +40,10 @@ public:
   int getxp(){return _xp;}
   void alife(){if(status!=DEAD){status=Status::ALIFE;}}
   bool loluded(){return (status==DEAD);}
+  virtual bool train(){return false;}
+  virtual int who(){return 0;}
+  virtual void up(){}
+  virtual int cost(){return 0;}
 };//End Objects
 
 class Base:public Objects
@@ -72,4 +77,35 @@ public:
   void update();
   void draw();
   bool loluded(){return (status==DEAD);}
+};//end Club
+
+class Queen:public Objects
+{
+private:
+  int _count=0;
+public:
+  Queen(Terminal& term, Vec2D pos,int team);
+  Queen(const Base& other);
+  void update();
+  void draw();
+  bool loluded(){return (status==DEAD);}
+};//end Club
+
+class Clubtrainer:public Objects
+{
+private:
+  int _count=150;
+  int _level=0;
+  bool _train;
+  int _cost=200;
+  int _time=150;
+public:
+  Clubtrainer(Terminal& term, Vec2D pos,int team);
+  Clubtrainer(const Base& other);
+  void update();
+  void draw();
+  bool train();
+  int who();
+  void up();
+  int cost();
 };//end Club

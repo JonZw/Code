@@ -1,0 +1,37 @@
+A3
+
+1.
+  LOCK=0 d.h. entspert
+
+  enter_region:
+    TSL RX,LOCk       //RX wird auf Lock (also 0) gesetzt
+    CMP RX,#0         //RX wird mit der zahl 0 verglichen -> true
+    JNE enter_region  //Wenn CMP=false führe enter_region aus -> wird übersprungen
+    RET               //enter_region wird verlassen und die Aufrufstelle wird fortgeführt
+
+  2.Lock=1 d.h. gesperrt
+
+  thread 1:
+    enter_region(1)
+
+      TSL RX,LOCK         //RX wird auf Lock (also 1) gesetzt
+        CMP RX,#0         //RX wird mit der zahl 0 verglichen -> false
+        JNE enter_region  //Wenn CMP=false führe enter_region aus ->enter_region(2)
+
+    ______
+
+  thread 2:
+    leave_region:
+
+      MOVE LOCK,#0       //Lcok wird auf die Zahl 0 gesetzt
+      RET                //thread 2 wird weiter ausgeführt
+
+    _______
+        enter_region(2)( in enter_region(1))
+
+        TSL RX,LOCK   //RX wird auf 0 gesetzt
+        CMP RX,#0     //s. 1.
+        JNE enter_region //s.1.
+        RET         //das erste enter_region wird fortgesetzt
+
+      RET         //thread 1 wird fortgeführt

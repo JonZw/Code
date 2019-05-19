@@ -1,0 +1,31 @@
+Lvl : 1
+
+  Mit Beiden threads die while-schleige übersringen solange keiner von
+  beiden flag auf true gesetzt hat
+
+Lvl : 2
+  führe zuerst den 2ten thread aus bis er in critical_section() kommt
+  dann mache das gleiche beim ersten
+
+lvl: 3
+  setzte mit beiden threads temp auf first+1 (mithilfe expand)  um dann mit beiden
+  first auf temp zu setzten, dann beende den 2 thread und den ersten bis die
+  fehlermeldung kommt
+
+lvl: 4
+  lasse den ersten thread laufen bis i=4 dann führe den 2ten thread aus, so das
+  i=3 ist lässt du den ersten thread jetzt laufen kommt es zur fehlermeldung
+
+lvl: 5
+  gehe jeweils in beiden thread einen step, so sind beide mutexe gelockt
+
+lvl: 6
+  gehe mit thread 1 soweit das du flag auf false setzt. Mutex ist nun locked
+  und du kannst mit dem thread 0 in die else schleife flag auf true setzten.
+  Nun muss thread 1 in die if(flag)-schleife ohne mutex auf locked zu setzen.
+  thread 0 geht in die if (Monitor.TryEnter(mutex)-schleife. thread 1 locked
+  zuletzt mutex2 und thread 0 mutex 1. so ensteht der Deathlock
+
+Expand steht zur verfügung wenn tatzälich mehr passiert als der Befehl anmuten lässt.
+zb. bei first++ wird nicht first=first+1 gerechnet sonder zuerst eine temporäre
+variable auf den wert gesetzt,

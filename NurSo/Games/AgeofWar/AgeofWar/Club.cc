@@ -4,8 +4,9 @@ Club::Club(Terminal& term,Vec2D pos,int team):Objects(term,pos,team)
 {
   _count=_team;
   _hp=100+rand()%50;
+  _mp=_hp;
   _dmg=1;
-  _xp=50;
+  _xp=25;
 }
 //Club::Club(const Club& other):Objects(other){}
 void Club::update()
@@ -38,7 +39,7 @@ void Club::draw()
   {
     _term.set_cell(_position.x,_position.y,'|',_team,0);
     _term.set_cell(_position.x,_position.y-1,'o',_team,0);
-    _term.draw_text(_position.x,_position.y-2,std::to_string(_hp));
+    _term.draw_text(_position.x,_position.y-2,std::to_string((int)(((float)_hp/(float)_mp)*100)));
     if(_count==0)
     {
       if(_team==1)
