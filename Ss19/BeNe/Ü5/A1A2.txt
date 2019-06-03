@@ -1,0 +1,56 @@
+A1
+
+12 MB, 11 MB, 3 MB und 5 MB
+werden nacheinander eingefügt:
+
+First Fit:
+
+  10, 4, 20, 18, 7, 9, 12, 15
+         12
+  10, 4,  8, 18, 7, 9, 12, 15
+             11
+  10, 4,  8,  7, 7, 9, 12, 15
+   3
+   7, 4,  8,  7, 7, 9, 12, 15
+   5
+   2, 4,  8,  7, 7, 9, 12, 15
+
+Best Fit:
+
+  10, 4, 20, 18, 7, 9, 12, 15
+                       12
+  10, 4, 20, 18, 7, 9,  0, 15
+                           11
+  10, 4, 20, 18, 7, 9,  0,  4
+      3
+  10, 1, 20, 18, 7, 9,  0,  4
+                 5
+  10, 1, 20, 18, 2, 9,  0,  4
+
+Worst Fit:
+
+  10, 4, 20, 18, 7, 9, 12, 15
+         12
+  10, 4,  8, 18, 7, 9, 12, 15
+             11
+  10, 4,  8,  7, 7, 9, 12, 15
+                            3
+  10, 4,  8,  7, 7, 9, 12, 12
+                        5
+  10, 4,  8,  7, 7, 9,  7, 12
+
+A2
+
+Interne/Externe Fragmentierung
+
+Externe Fragmentierung beschreibt das Problem das im Adressenbereich des
+freien Speichers Löcher dardurch enstehen, das das Betriebssystem Prozesse
+hintereinander speichert und wieder Löscht.
+Interne Fragmentierung beschreibt das Problem, das ein Prozess ein gößeres "Loch"
+benötigt als er wirklicht braucht
+
+Logische/Physische Adresse:
+
+Die Physische Adresse zeig auf den tatsächlichen physischen Speicher,
+die Logische Adresse zeigt auf ein Page Directory welche Zeiger auf
+physischen Adressen hat
