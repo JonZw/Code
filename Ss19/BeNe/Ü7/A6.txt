@@ -1,0 +1,17 @@
+A6
+
+RAID 0
+  19%
+    Die Wahrscheinlichkeit das beide Fp nicht ausfallen ist
+      0.9*0.9=0.81
+    Also ist die Gegenwahrscheinlichkeit das keine der Festplatten ausfällt
+      1-0.81=0.19
+RAID 1
+  01%
+    Die Wahrscheinlichkeit das beide Fp ausfallen ist
+      0.1*0.1=0.01
+
+Bei RAID 1 währe es schlau die ausgefallene Fp zu ersetzen, d.h. für einen
+komplettausfall müssten beide Fp gleichzeitig ausfalllen.
+Auch wird die Wahrscheinlichkeit das es einen komplettausfall bei Raid 1 giebt
+gesengt wenn man mehr Fp hinzunimmt, im gegensatz zu Raid 0

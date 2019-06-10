@@ -1,0 +1,25 @@
+A5
+125 234
+86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130
+
+FCFS:
+  86, 1470, 913, 1774, 948, 1509, 1022, 1750, 130
+SSTF:
+  130, 86, 913, 948, 1022, 1470, 1509, 1750, 1774
+SCAN:
+  86, 130, 913, 948, 1022, 1470, 1509, 1750, 1774
+CSCAN:
+  130, 913, 948, 1022, 1470, 1509, 1750, 1774, 86
+CLOCK:
+  130, 913, 948, 1022, 1470, 1509, 1750, 1774, 86
+
+
+Der Kopf steht auf 5
+Anfragen: 1 2 3 6 7 8
+hier ist FCFS schneller als SSTF
+
+Für SCAN ist es am ungünstigsten wenn die Anfrage genau dort ist
+wo der Kopf gerade vorbeigekommen ist.
+Die Anfrage ist dann zwar genau neben dem Kopf muss aber trotzdem eine
+ganze "Runde" warten.
+Ist z.B. der Kopf auf Null kommt 4095 als letzes dran.
