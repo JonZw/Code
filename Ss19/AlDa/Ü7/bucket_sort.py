@@ -31,6 +31,9 @@ def insertionSort(a):   # sort 'a' in-place
 def bucketMap(r, M):
   return int(r**2 * M)
 
+def naiveBucketMap(r, M):
+    return r*M
+
 def bucketSort(a, d):
     N = len(a)
     M = int(N / float(d))  # Anzahl der Buckets festlegen
@@ -74,11 +77,11 @@ t = []
 t_naive = []
 size = []
 for n in range(1000,10001,1000):
-    timer_1 = timeit.Timer(stmt= 'bucketSort(a,bucketMap)',
+    timer_1 = timeit.Timer(stmt= 'bucketSort(a,5)',
         setup = 'from __main__ import insertionSort,'+
         'bucketSort, bucketMap, createData \n' +
         'a = createData('+ str(n) + ')\n')
-    timer_2 = timeit.Timer(stmt= 'bucketSort(a,naiveBucketMap)',
+    timer_2 = timeit.Timer(stmt= 'bucketSort(a,5)',
         setup = 'from __main__ import insertionSort,'+
         'bucketSort, naiveBucketMap, createData \n' +
         'a = createData('+ str(n) + ')\n')
