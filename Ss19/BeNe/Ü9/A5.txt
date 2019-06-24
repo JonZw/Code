@@ -1,0 +1,21 @@
+A4
+Hashing steckt das eingegebene Passwort in eine Funktion, dessen Ergebnis gespeichert
+wird. Das gleiche Passwort ergibt das gleiche Ergebnis, so kann man sich wieder
+anmelden.Problem: Andere Leute können das Passwort erraten und zwei Leute können
+das gleiche Passwort wählen. Deswegen benutzt man den Salt wert. Man hängt einen
+zufälligen wert hinter das Passwort das mitgehasht wird. So ergeben zwei gleiche
+Passwörter von verschiedenen Leuten einen anderen hashwert. Da der Salt sowieso eine
+Zufallsstring ist kann man ihn auch hinter den hashwert schreiben. Vor brute force
+schützt das aber nicht, also gilt je länger desto besser. 12 bit funktionieren sind
+aber natürlich unsicherer als größere werte.
+
+A5
+Der Pufferüberlauf-Angriff setzt darauf, das wenn der Puffer
+voll ist, die Eingabe ausgeführt wird. Wenn die MMU es schafft den Überlauf
+dorthin zu schreiben wo die Eingabe auf keinen fall ausgeführt wird, funktioniert
+der Angriff nicht mehr.
+
+A6
+Return-to-libc funktioniert genauso wie der Pufferüberlaufangriff nur das die
+Übergelaufen Eingaben nicht auf eigenen Code verweisen sondern Code aus der libc
+(einer Bibliothek aus C)  aufrufen.
