@@ -1,0 +1,22 @@
+A1
+a)
+
+  Ping: Ping ist die Rundlaufzeit  (für Spiele wichtig)
+  Up/Download: Durchschnittlicher Durchsatz (für Streaming)
+
+b)
+  Je weiter man vom Server entfernt ist desto höher wird der Ping.
+  Die Up/Download rate sollte sich nicht ändern solange man kein
+  schlächteres Kabel benutzts
+
+A2
+                          a)            b)              c)
+• Anwendungsschicht       Nachricht     Programme       Programmadresse
+• Transportschicht        Segment       Prozesse        IP-Adresse/Portnumber
+• Netzwerkschicht         Datagram      Start-/Endhost  IP-Adresse
+• Sicherungsschicht       Rahmen        2 verb. Geräte  IP-Adresse
+
+A3
+
+Client bieten offline-Speicher der Emails an. Der Browser könnte cookies Speichern
+Clienten sind auch sicherer da sie unabhängig vom Browser sind
