@@ -1,0 +1,14 @@
+A5
+
+SYN-Cookies ermöglicht es einem Server, das Unterbrechen von Verbindungen
+zu vermeiden, wenn der SYN-Puffer voll ist.
+Der Server sendet die entsprechende SYN + ACK-Antwort an den Client
+zurück, verwirft jedoch den SYN-Puffer-Eintrag.
+Wenn der Server dann eine nachfolgende ACK-Antwort vom Client erhält,
+kann der Server den SYN-Puffer-Eintrag unter Verwendung der in der
+TCP-Sequenznummer codierten Informationen rekonstruieren.
+
+A6
+
+A sendet Pakete Nach B. B sendet wie viel Platz er noch in seinem Puffer hat
+(RcvWindow). Ist der Puffer voll hört A auf zu senden.
